@@ -12,11 +12,10 @@ var core_1 = require('@angular/core');
 var auth_service_1 = require('./auth.service');
 var HomeComponent = (function () {
     function HomeComponent(auth) {
-        var _this = this;
         this.auth = auth;
         this.options = [];
         setTimeout(function () {
-            _this.userName = localStorage.userName;
+            //this.userName = localStorage.userName;
             console.log(localStorage);
         }, 2000);
     }

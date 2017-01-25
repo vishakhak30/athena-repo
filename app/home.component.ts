@@ -10,7 +10,7 @@ export class HomeComponent {
     userName: string;
   constructor(private auth: Auth) {
       setTimeout(() => {
-          this.userName = localStorage.userName;
+          //this.userName = localStorage.userName;
           console.log(localStorage);
       }, 2000);
   }
