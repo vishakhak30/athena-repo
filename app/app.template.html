@@ -1,0 +1,24 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <div id="logo" class="logo">
+            <span class="site-logo" href="http://athenasystech.com">
+                <img src="http://athenasystech.com/wp-content/uploads/2014/10/logo1.png" alt="Athena Systech">
+            </span>
+        </div>
+        <!--<p class="navbar-brand" style="font-size:30px;">Athena Systems</p>-->
+      <button class="pull-right logoutBtn" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
+    </div>
+  </div>
+</nav>
+        <div class="loginNote" *ngIf="!auth.authenticated()">
+            <h3 class="login-note" >
+            You are not logged in, please click 'Log in' button to login
+            </h3>
+            <!--<button class="btn btn-primary loginBtn" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>-->
+            <button class="button_example" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
+        </div>
+
+<main class="container">
+  <router-outlet></router-outlet>
+</main>
