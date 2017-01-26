@@ -13,21 +13,15 @@ var auth_service_1 = require('./auth.service');
 var HomeComponent = (function () {
     function HomeComponent(auth) {
         this.auth = auth;
-        this.options = [];
-        setTimeout(function () {
-            //this.userName = localStorage.userName;
-            console.log(localStorage);
-        }, 2000);
     }
     HomeComponent = __decorate([
         core_1.Component({
             selector: 'home',
-            templateUrl: 'app/home.component.html'
+            templateUrl: 'app/home.template.html'
         }), 
         __metadata('design:paramtypes', [auth_service_1.Auth])
     ], HomeComponent);
     return HomeComponent;
 }());
 exports.HomeComponent = HomeComponent;
-;
 //# sourceMappingURL=home.component.js.map

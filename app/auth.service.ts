@@ -1,47 +1,60 @@
 import { Injectable }      from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
+import { Router }          from '@angular/router';
 import { myConfig }        from './auth.config';
 
 // Avoid name not found warnings
-declare var Auth0Lock: any;
+declare var Auth0: any;
 
 @Injectable()
 export class Auth {
   // Configure Auth0
-   options = {
-    auth: {
-        responseType: 'id_token',
-        params: {scope: 'openid name email'}
+  auth0 = new Auth0({
+    domain: myConfig.domain,
+    clientID: myConfig.clientID,
+    callbackOnLocationHash: true,
+    callbackURL: myConfig.callbackURL,
+  });
+
+  constructor(private router: Router) {
+    var result = this.auth0.parseHash(window.location.hash);
+
+    if (result && result.idToken) {
+      localStorage.setItem('id_token', result.idToken);
+      this.router.navigate(['/home']);
+    } else if (result && result.error) {
+      alert('error: ' + result.error);
     }
-};
-  lock = new Auth0Lock(myConfig.clientID, myConfig.domain, this.options,{});
-
-  constructor() {
-    // Add callback for lock `authenticated` event
-    this.lock.on('authenticated', (authResult) => {
-      localStorage.setItem('id_token', authResult.idToken);
-        localStorage.setItem('userEmail', authResult.idTokenPayload.email);
-        localStorage.setItem('userName', authResult.idTokenPayload.name);
-
-//        this.lock.getUserInfo(authResult.idToken, function (error, profile) {
-//            if (error) {
-//                // Handle error
-//                return;
-//            }
-//
-//            localStorage.setItem('userToken', authResult.idToken);
-//            localStorage.setItem('userEmail', authResult.idTokenPayload.email);
-//            localStorage.setItem('userName'), authResult.idTokePayload.name);
-//
-////            goToHomepage(authResult.state, authResult.idToken);
-//            return;
-//        })
-    });
   }
 
-  public login() {
-    // Call the show method to display the widget.
-    this.lock.show();
+  public signUp(username, password) {
+    this.auth0.signup({
+      connection: 'Username-Password-Authentication',
+      responseType: 'token',
+      email: username,
+      password: password,
+    }, function(err) {
+      if (err) alert("something went wrong: " + err.message);
+    });
+  };
+
+  public login(username, password) {
+    this.auth0.login({
+      connection: 'Username-Password-Authentication',
+      responseType: 'token',
+      email: username,
+      password: password,
+    }, function(err) {
+      if (err) alert("something went wrong: " + err.message);
+    });
+  };
+
+  public googleLogin() {
+    this.auth0.login({
+      connection: 'google-oauth2'
+    }, function(err) {
+      if (err) alert("something went wrong: " + err.message);
+    });
   };
 
   public authenticated() {

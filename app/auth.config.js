@@ -1,6 +1,8 @@
 "use strict";
 exports.myConfig = {
-    clientID: 'RkkvUoFNTqL4CHPRN9ZG0bjRst8RNUvC',
-    domain: 'athena-test.auth0.com'
+    clientID: 'wHSyTVMrrwHTYEGnuouX2WitvB3z2myW',
+    domain: 'athena-test.auth0.com',
+    // You may need to change this!
+    callbackURL: 'http://localhost:3000/'
 };
 //# sourceMappingURL=auth.config.js.map

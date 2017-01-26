@@ -10,40 +10,58 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var angular2_jwt_1 = require('angular2-jwt');
+var router_1 = require('@angular/router');
 var auth_config_1 = require('./auth.config');
 var Auth = (function () {
-    function Auth() {
+    function Auth(router) {
+        this.router = router;
         // Configure Auth0
-        this.options = {
-            auth: {
-                responseType: 'id_token',
-                params: { scope: 'openid name email' }
-            }
-        };
-        this.lock = new Auth0Lock(auth_config_1.myConfig.clientID, auth_config_1.myConfig.domain, this.options, {});
-        // Add callback for lock `authenticated` event
-        this.lock.on('authenticated', function (authResult) {
-            localStorage.setItem('id_token', authResult.idToken);
-            localStorage.setItem('userEmail', authResult.idTokenPayload.email);
-            localStorage.setItem('userName', authResult.idTokenPayload.name);
-            //        this.lock.getUserInfo(authResult.idToken, function (error, profile) {
-            //            if (error) {
-            //                // Handle error
-            //                return;
-            //            }
-            //
-            //            localStorage.setItem('userToken', authResult.idToken);
-            //            localStorage.setItem('userEmail', authResult.idTokenPayload.email);
-            //            localStorage.setItem('userName'), authResult.idTokePayload.name);
-            //
-            ////            goToHomepage(authResult.state, authResult.idToken);
-            //            return;
-            //        })
+        this.auth0 = new Auth0({
+            domain: auth_config_1.myConfig.domain,
+            clientID: auth_config_1.myConfig.clientID,
+            callbackOnLocationHash: true,
+            callbackURL: auth_config_1.myConfig.callbackURL,
         });
+        var result = this.auth0.parseHash(window.location.hash);
+        if (result && result.idToken) {
+            localStorage.setItem('id_token', result.idToken);
+            this.router.navigate(['/home']);
+        }
+        else if (result && result.error) {
+            alert('error: ' + result.error);
+        }
     }
-    Auth.prototype.login = function () {
-        // Call the show method to display the widget.
-        this.lock.show();
+    Auth.prototype.signUp = function (username, password) {
+        this.auth0.signup({
+            connection: 'Username-Password-Authentication',
+            responseType: 'token',
+            email: username,
+            password: password,
+        }, function (err) {
+            if (err)
+                alert("something went wrong: " + err.message);
+        });
+    };
+    ;
+    Auth.prototype.login = function (username, password) {
+        this.auth0.login({
+            connection: 'Username-Password-Authentication',
+            responseType: 'token',
+            email: username,
+            password: password,
+        }, function (err) {
+            if (err)
+                alert("something went wrong: " + err.message);
+        });
+    };
+    ;
+    Auth.prototype.googleLogin = function () {
+        this.auth0.login({
+            connection: 'google-oauth2'
+        }, function (err) {
+            if (err)
+                alert("something went wrong: " + err.message);
+        });
     };
     ;
     Auth.prototype.authenticated = function () {
@@ -59,7 +77,7 @@ var Auth = (function () {
     ;
     Auth = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router])
     ], Auth);
     return Auth;
 }());

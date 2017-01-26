@@ -14,20 +14,6 @@ var AppComponent = (function () {
     function AppComponent(auth) {
         this.auth = auth;
     }
-    /**
-     * Checks the login status and if not logged in dispaly login pop up
-     */
-    AppComponent.prototype.checkLogin = function () {
-        var _this = this;
-        var auth = this.auth;
-        setTimeout(function () {
-            _this.isLoggedIn = auth.authenticated();
-            !_this.isLoggedIn && auth.login();
-        }, 2000);
-    };
-    AppComponent.prototype.ngOnInit = function () {
-        this.checkLogin();
-    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',

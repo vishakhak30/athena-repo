@@ -1,290 +1,194 @@
-/* Master Styles */
-h1 {
-  color: #369; 
-  font-family: Arial, Helvetica, sans-serif;   
-  font-size: 250%;
+/*
+ * Specific styles of signin component
+ */
+/*
+ * General styles
+ */
+body, html {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-color: #f7f7f7 !important;
+    /*background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
 }
-h2, h3 { 
-  color: #444;
-  font-family: Arial, Helvetica, sans-serif;   
-  font-weight: lighter;
-}
-body { 
-  margin: 2em; 
-}
-body, input[text], button { 
-  color: #888; 
-  font-family: Cambria, Georgia; 
-}
-a {
-  cursor: pointer;
-  cursor: hand;
-}
-button {
-  font-family: Arial;
-  background-color: #eee;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  cursor: hand;
-}
-button:hover {
-  background-color: #cfd8dc;
-}
-button:disabled {
-  background-color: #eee;
-  color: #aaa; 
-  cursor: auto;
+.container{
+    padding: 50px;
 }
 
-nav a:visited, a:link {
-  color: #607D8B;
+.navbar-default {
+    /*padding: 50px;*/
+    /*background: coral;*/
+    -webkit-box-shadow: 2px 2px 15px 0px rgba(42, 50, 50, 0.75);
+    -moz-box-shadow:    2px 2px 15px 0px rgba(42, 50, 50, 0.75);
+    box-shadow:         2px 2px 15px 0px rgba(42, 50, 50, 0.75);
 }
-nav a:hover {
-  color: #039be5;
-  background-color: #CFD8DC;
-}
-nav a.router-link-active {
-  color: #039be5;
-}
-
-/* items class */
-.items {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
-  width: 24em;
-}
-.items li {
-  cursor: pointer;
-  position: relative;
-  left: 0;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 1.6em;
-  border-radius: 4px;
-}
-.items li:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
-}
-.items li.selected:hover {
-  background-color: #BBD8DC;
-  color: white;
-}
-.items .text {
-  position: relative;
-  top: -3px;
-}
-.items {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
-  width: 24em;
-}
-.items li {
-  cursor: pointer;
-  position: relative;
-  left: 0;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 1.6em;
-  border-radius: 4px;
-}
-.items li:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
-}
-.items li.selected {
-  background-color: #CFD8DC;
-  color: white;
+.card-container.card {
+    max-width: 400px;
+    padding: 40px 40px;
 }
 
-.items li.selected:hover {
-  background-color: #BBD8DC;
-}
-.items .text {
-  position: relative;
-  top: -3px;
-}
-.items .badge {
-  display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color: #607D8B;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  height: 1.8em;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
+.btn {
+    font-weight: 700;
+    height: 36px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
 }
 
-/* everywhere else */
-* { 
-  font-family: Arial, Helvetica, sans-serif; 
+/*
+ * Card component
+ */
+.card {
+    background-color: white;
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    /*margin: 0 auto 25px;*/
+    margin-top: 50px;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    /*-moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);*/
+    /*-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);*/
+    /*box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);*/
+}
+.athena-info-container {
+    margin-top: 50px;
+    text-align: center;
+    color: gray;
+ }
+.profile-img-card {
+    width: 96px;
+    /*height: 96px;*/
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    color: #808080;
 }
 
-.btn-margin {
-    margin-top: 10px;
-    float: right;
+.welcome-note{
+    margin: 0 auto 10px;
+    color:gray;
+    text-align: center;
 }
 
-.navbar-header {
+/*
+ * Form styles
+ */
+.profile-name-card {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+}
+
+.reauth-email {
+    display: block;
+    color: #404040;
+    line-height: 2;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin #inputEmail,
+.form-signin #inputPassword {
+    direction: ltr;
+    height: 44px;
+    font-size: 16px;
+}
+
+.form-signin input[type=email],
+.form-signin input[type=password],
+.form-signin input[type=text],
+.form-signin button {
     width: 100%;
-    height: 15%;
-}
-.login-note{
-    text-align: center;
-    color: graytext;
-}
-div#logo.logo{
-    float: left;
-    margin-left: 2%;
-}
-.logo span {
     display: block;
-    line-height: 1em;
-    width: 80%;
-}
-img{
-    width: 100%;
-    /*height: 15%;*/
-    margin-left: 30%;
-}
-
-.menu-main {
-    margin: 30px;
-    margin-right: 10px;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-.menu-main {
-    float: right;
-}
-.loginBtn {
-    margin: auto;
-    display: block !important;
-}
-
-.loginNote {
-    margin-top: 10%;
-}
-.logoutBtn{
-    margin-top: 10px;
-    display: block;
-    border:px solid #FFFFFF; -webkit-border-radius: px; -moz-border-radius: px;border-radius: px;width:px;font-size:px;font-family:arial, helvetica, sans-serif; padding: 10px 10px 10px 10px; text-decoration:none; display:inline-block; color: #FFFFFF;
-    background-color: #f62b2b; background-image: -webkit-gradient(linear, left top, left bottom, from(#f62b2b), to(#d20202));
-    background-image: -webkit-linear-gradient(top, #f62b2b, #d20202);
-    background-image: -moz-linear-gradient(top, #f62b2b, #d20202);
-    background-image: -ms-linear-gradient(top, #f62b2b, #d20202);
-    background-image: -o-linear-gradient(top, #f62b2b, #d20202);
-    background-image: linear-gradient(to bottom, #f62b2b, #d20202);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f62b2b, endColorstr=#d20202);
+.form-signin .form-control:focus {
+    border-color: rgb(104, 145, 162);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
 }
 
-.logoutBtn:hover  {
-    border:px solid #FFFFFF;
-    background-color: #e40a0a; background-image: -webkit-gradient(linear, left top, left bottom, from(#e40a0a), to(#9f0202));
-    background-image: -webkit-linear-gradient(top, #e40a0a, #9f0202);
-    background-image: -moz-linear-gradient(top, #e40a0a, #9f0202);
-    background-image: -ms-linear-gradient(top, #e40a0a, #9f0202);
-    background-image: -o-linear-gradient(top, #e40a0a, #9f0202);
-    background-image: linear-gradient(to bottom, #e40a0a, #9f0202);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#e40a0a, endColorstr=#9f0202);
-}
-.button_example{
-    width: 150px;
-    margin: auto;
-    display: block !important;
-    border:px solid #FFFFFF; -webkit-border-radius: px; -moz-border-radius: px;border-radius: px;width:px;font-size:px;font-family:arial, helvetica, sans-serif; padding: 10px 10px 10px 10px; text-decoration:none; display:inline-block; color: #FFFFFF;
-    background-color: #f62b2b; background-image: -webkit-gradient(linear, left top, left bottom, from(#f62b2b), to(#d20202));
-    background-image: -webkit-linear-gradient(top, #f62b2b, #d20202);
-    background-image: -moz-linear-gradient(top, #f62b2b, #d20202);
-    background-image: -ms-linear-gradient(top, #f62b2b, #d20202);
-    background-image: -o-linear-gradient(top, #f62b2b, #d20202);
-    background-image: linear-gradient(to bottom, #f62b2b, #d20202);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f62b2b, endColorstr=#d20202);
+.btn.btn-signin, .btn.google-signin, .btn.linkedIn-signin {
+    /*background-color: #4d90fe; */
+    background-color: rgb(244, 101, 66);
+    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+    padding: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    height: 36px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: none;
+    -o-transition: all 0.218s;
+    -moz-transition: all 0.218s;
+    -webkit-transition: all 0.218s;
+    transition: all 0.218s;
 }
 
-.button_example:hover{
-    border:px solid #FFFFFF;
-    background-color: #e40a0a; background-image: -webkit-gradient(linear, left top, left bottom, from(#e40a0a), to(#9f0202));
-    background-image: -webkit-linear-gradient(top, #e40a0a, #9f0202);
-    background-image: -moz-linear-gradient(top, #e40a0a, #9f0202);
-    background-image: -ms-linear-gradient(top, #e40a0a, #9f0202);
-    background-image: -o-linear-gradient(top, #e40a0a, #9f0202);
-    background-image: linear-gradient(to bottom, #e40a0a, #9f0202);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#e40a0a, endColorstr=#9f0202);
+/*.btn.google-signin{*/
+    /*position: relative;*/
+    /*padding-left: 44px;*/
+    /*text-align: left;*/
+    /*white-space: nowrap;*/
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
+/*}*/
+
+.btn.btn-google{
+    color:#fff;
+    background-color:#dd4b39;
+    border-color:rgba(0,0,0,0.2)
 }
 
-.SearchBtn{
-    border:px solid #FFFFFF; -webkit-border-radius: px; -moz-border-radius: px;border-radius: px;width:px;font-size:px;font-family:arial, helvetica, sans-serif; padding: 10px 10px 10px 10px; text-decoration:none; display:inline-block; color: #FFFFFF;
-    background-color: #f62b2b; background-image: -webkit-gradient(linear, left top, left bottom, from(#f62b2b), to(#d20202));
-    background-image: -webkit-linear-gradient(top, #f62b2b, #d20202);
-    background-image: -moz-linear-gradient(top, #f62b2b, #d20202);
-    background-image: -ms-linear-gradient(top, #f62b2b, #d20202);
-    background-image: -o-linear-gradient(top, #f62b2b, #d20202);
-    background-image: linear-gradient(to bottom, #f62b2b, #d20202);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f62b2b, endColorstr=#d20202);
+.btn.btn-linkedin{
+    color: #fff;
+    background-color: #007bb6;
+    border-color: rgba(0,0,0,0.2);
 }
-.SearchBtn:hover{
-    border:px solid #FFFFFF;
-    background-color: #e40a0a; background-image: -webkit-gradient(linear, left top, left bottom, from(#e40a0a), to(#9f0202));
-    background-image: -webkit-linear-gradient(top, #e40a0a, #9f0202);
-    background-image: -moz-linear-gradient(top, #e40a0a, #9f0202);
-    background-image: -ms-linear-gradient(top, #e40a0a, #9f0202);
-    background-image: -o-linear-gradient(top, #e40a0a, #9f0202);
-    background-image: linear-gradient(to bottom, #e40a0a, #9f0202);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#e40a0a, endColorstr=#9f0202);
-}
-.searchForm{
-    margin: auto;
-    display: block;
+.btn.btn-signin:hover,
+.btn.btn-signin:active,
+.btn.btn-signin:focus {
+    background-color: rgb(12, 97, 33);
 }
 
-select {
-    margin-bottom: 5%;
+.forgot-password {
+    color: rgb(104, 145, 162);
 }
 
-input[type='radio'] {
-    -webkit-appearance:none;
-    width:15px;
-    height:15px;
-    border:1px solid darkgray;
-    border-radius:50%;
-    outline:none;
-    box-shadow:0 0 5px 0px gray inset;
-    display: table-cell;
-    vertical-align: middle;
-    margin-bottom: 5%;
+.forgot-password:hover,
+.forgot-password:active,
+.forgot-password:focus{
+    color: rgb(12, 97, 33);
 }
-input[type='radio']:hover {
-    box-shadow:0 0 5px 0px orange inset;
+.info{
+    /*font-family: "Courier New" ;*/
+    font-size: 40px;
 }
-input[type='radio']:before {
-    content:'';
-    display:block;
-    width:60%;
-    height:60%;
-    margin: 10% auto;
-    border-radius:50%;
-    margin-bottom: 5%
+p.info.ex {
+    height: 100px
 }
-input[type='radio']:checked:before {
-    background:lightcoral;
-    margin-bottom: 5%
-}
-
-.welcomeNote{
-    text-align: center;
-    /*text-decoration: underline;*/
-    /*-moz-text-decoration-color: red; *//* Code for Firefox */
-    /*text-decoration-color: red;*/
-}
-.underline{
-    border-bottom: 5px solid lightgrey;
-    text-align: center;
-    margin: auto;
-    display: block;
+.about-us{
+    font-size: 15px;
+    padding: 20px 25px 30px;
 }

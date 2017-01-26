@@ -1,9 +1,12 @@
 interface AuthConfiguration {
     clientID: string,
-    domain: string
+    domain: string,
+    callbackURL: string
 }
 
 export const myConfig: AuthConfiguration = {
-    clientID: 'RkkvUoFNTqL4CHPRN9ZG0bjRst8RNUvC',
-    domain: 'athena-test.auth0.com'
+    clientID: 'wHSyTVMrrwHTYEGnuouX2WitvB3z2myW',
+    domain: 'athena-test.auth0.com',
+    // You may need to change this!
+    callbackURL: 'http://localhost:3000/'
 };

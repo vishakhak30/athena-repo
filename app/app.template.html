@@ -1,24 +1,50 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-        <div id="logo" class="logo">
+<div class="container">
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <div id="logo" class="logo">
             <span class="site-logo" href="http://athenasystech.com">
                 <img src="http://athenasystech.com/wp-content/uploads/2014/10/logo1.png" alt="Athena Systech">
             </span>
+            </div>
+            <button class="btn btn-primary pull-right logoutBtn" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
         </div>
-        <!--<p class="navbar-brand" style="font-size:30px;">Athena Systems</p>-->
-      <button class="pull-right logoutBtn" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
-    </div>
-  </div>
-</nav>
-        <div class="loginNote" *ngIf="!auth.authenticated()">
-            <h3 class="login-note" >
-            You are not logged in, please click 'Log in' button to login
-            </h3>
-            <!--<button class="btn btn-primary loginBtn" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>-->
-            <button class="button_example" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
+    </nav>
+    <div class="row" *ngIf="!auth.authenticated()">
+        <div class="col-xs-6">
+            <div class="card card-container">
+                <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+                <h1 id="profile-img" class="profile-img-card">Login</h1>
+                <p class="welcome-note">Welcome back. Login to your account below.</p>
+                <p id="profile-name" class="profile-name-card"></p>
+                <form class="form-signin">
+                    <button class="btn btn-lg btn-primary btn-block google-signin btn-google" (click)="auth.googleLogin()">Login with Google</button>
+                    <button class="btn btn-lg btn-primary btn-block linkedIn-signin btn-linkedin">Login woth LinkedIn</button>
+                    <div id="remember" class="checkbox">
+                        <label>
+                            <input type="checkbox" value="remember-me"> Remember me
+                        </label>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+                </form><!-- /form -->
+                <a href="#" class="forgot-password">
+                    Forgot the password?
+                </a>
+            </div> <!-- /card-container -->
+         </div>
+        <div class="col-xs-6">
+            <div class="athena-info-container">
+                  <p class="info">
+                      GET TO KNOW US
+                  <p>
+                <p class="about-us">
+                    At Athena Insights, we believe that the best solutions come <br> from the people who are most affected by the problem.<br>
+                    We have dedicated our lives to working with these <br> communities - providing whatever support they need in <br>order to unlock
+                    their potential. We want all individuals to <br>envision their goals and realize they have the ability to make <br> their dreams a reality.
+                </p>
+            </div>
         </div>
+     </div>
+      <home *ngIf="auth.authenticated()"></home>
 
-<main class="container">
-  <router-outlet></router-outlet>
-</main>
+
+</div><!-- /container -->
