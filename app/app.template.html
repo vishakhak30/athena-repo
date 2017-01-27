@@ -1,4 +1,4 @@
-<div class="container">
+<div class="flex-container">
     <nav class="navbar navbar-default">
         <div class="navbar-header">
             <div id="logo" class="logo">
@@ -6,11 +6,11 @@
                 <img src="http://athenasystech.com/wp-content/uploads/2014/10/logo1.png" alt="Athena Systech">
             </span>
             </div>
-            <button class="btn btn-primary pull-right logoutBtn" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
         </div>
+        <button class="btn logoutBtn" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
     </nav>
     <div class="row" *ngIf="!auth.authenticated()">
-        <div class="col-xs-5">
+        <div class="col-xs-6">
             <div class="card card-container">
                 <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
                 <h1 id="profile-img" class="profile-img-card">Login</h1>

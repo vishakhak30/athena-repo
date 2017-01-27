@@ -1,0 +1,43 @@
+@media (max-width: 767px) {
+    div.home{
+        margin-top: -5%;
+    }
+}
+.home{
+    background-image: url("./img/bg.png");
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color:white;
+    width: 100%;
+    height: 100%;
+    margin-top: -2%;
+    padding: 5%;
+}
+.welcomeNote{
+    float: right;
+    margin-top: -2%;
+}
+input[type=text] {
+    margin: auto;
+    width: 50%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    /*background-image: url('./img/searchicon.jpg');*/
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+.search-note{
+    padding-top: 5%;
+    margin: auto;
+    text-align: center;
+    font-size: 30px;
+}

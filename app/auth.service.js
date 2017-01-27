@@ -16,11 +16,18 @@ var Auth = (function () {
     function Auth(router) {
         this.router = router;
         // Configure Auth0
+        this.options = {
+            auth: {
+                responseType: 'id_token',
+                params: { scope: 'openid name email' }
+            }
+        };
         this.auth0 = new Auth0({
             domain: auth_config_1.myConfig.domain,
             clientID: auth_config_1.myConfig.clientID,
             callbackOnLocationHash: true,
             callbackURL: auth_config_1.myConfig.callbackURL,
+            options: this.options
         });
         var result = this.auth0.parseHash(window.location.hash);
         if (result && result.idToken) {
