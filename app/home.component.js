@@ -13,8 +13,11 @@ var auth_service_1 = require('./auth.service');
 var HomeComponent = (function () {
     function HomeComponent(auth) {
         this.auth = auth;
-        this.userName = localStorage.userName;
+        console.log(auth);
     }
+    HomeComponent.prototype.ngAfterViewInit = function () {
+        this.userName = localStorage.getItem('userName');
+    };
     HomeComponent = __decorate([
         core_1.Component({
             selector: 'home',

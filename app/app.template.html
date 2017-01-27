@@ -17,8 +17,12 @@
                 <p class="welcome-note">Welcome back. Login to your account below.</p>
                 <p id="profile-name" class="profile-name-card"></p>
                 <form class="form-signin">
-                    <button class="btn btn-lg btn-primary btn-block google-signin btn-google" (click)="auth.googleLogin()">Login with Google</button>
-                    <button class="btn btn-lg btn-primary btn-block linkedIn-signin btn-linkedin">Login woth LinkedIn</button>
+                    <button class="btn btn-lg btn-primary btn-block google-signin btn-google" (click)="auth.googleLogin()">
+                    <i class="fa fa-google" aria-hidden="true"></i>  Login with Google
+                    </button>
+                    <button class="btn btn-lg btn-primary btn-block linkedIn-signin btn-linkedin">
+                        <i class="fa fa-linkedin" aria-hidden="true"></i>  Login with LinkedIn
+                    </button>
                     <div id="remember" class="checkbox">
                         <label>
                             <input type="checkbox" value="remember-me"> Remember me

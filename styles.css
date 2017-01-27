@@ -20,6 +20,9 @@
     .card-container.card{
         margin-left: 5% !important;
     }
+    div.row{
+        margin-top: -10%;
+    }
 }
 
 body, html {
@@ -49,6 +52,7 @@ img{
     margin-left: 49%;
     margin-top: 8%;
 }
+
 .card-container.card {
     max-width: 400px;
     margin-left: 30%;
@@ -108,7 +112,6 @@ button.btn.logoutBtn{
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
-    color: #808080;
     font-size: 250%;
 }
 
@@ -216,6 +219,7 @@ button.btn.logoutBtn{
 .info{
     /*font-family: "Courier New" ;*/
     font-size: 240%;
+    color: #000000;
 }
 .about-us{
     font-size: 140%;

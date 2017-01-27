@@ -10,6 +10,9 @@ import { Auth }      from './auth.service';
 export class HomeComponent {
     userName:string;
   constructor(private auth: Auth) {
-         this.userName = localStorage.userName;
+      console.log(auth);
   }
+    ngAfterViewInit() {
+        this.userName = localStorage.getItem('userName');
+    }
 }
