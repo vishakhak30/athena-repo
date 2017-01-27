@@ -13,6 +13,7 @@ var auth_service_1 = require('./auth.service');
 var HomeComponent = (function () {
     function HomeComponent(auth) {
         this.auth = auth;
+        this.userName = localStorage.userName;
     }
     HomeComponent = __decorate([
         core_1.Component({

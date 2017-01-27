@@ -8,5 +8,8 @@ import { Auth }      from './auth.service';
 })
 
 export class HomeComponent {
-  constructor(private auth: Auth) {}
+    userName:string;
+  constructor(private auth: Auth) {
+         this.userName = localStorage.userName;
+  }
 }
